@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Car</title>
+</head>
+<body>
+    <div>
+        <h2>{{ object.title }}</h2>
+    <p>{{ object.description }}</p>
+    <img src="{{ object.image.url }}" alt="">
+    <p>{{ object.created_data }}</p>
+    <p>{{ object.updated_data }}</p>
+    </div>
+    <div>
+        <h2>Comments: </h2>
+        <ul>
+            {% for i in car_comment.all %}
+            <li>
+                <p> {{ i.text }} </p>
+                <p> {{ i.text }} </p>
+                <p> {{ i.created_date }} </p>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/cars/{{object.if}}/update/">Update?</a>
+        <a href="/add-comment-car/"> Add Comment Car</a>
+    </div>
+</body>
+</html>

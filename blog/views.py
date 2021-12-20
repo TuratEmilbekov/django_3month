@@ -1,8 +1,10 @@
 from django import forms
 from django.http import request
 from django.http.response import Http404, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from . import models, forms
+from django.views import generic
+
 
 # Create your views here.
 def get_posts(request):
