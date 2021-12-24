@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'bookstore',
     'redmachine',
+    'parser_dj',
 ]
 
 MIDDLEWARE = [
