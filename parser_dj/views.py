@@ -27,26 +27,23 @@ class ParserAnimeView(FormView):
             return super (ParserAnimeView, self).post(request, *args, **kwargs)
 
 
-class SerialView(ListView):
-    model = models.Serial
-    template_name = 'jutsu_list.html'
+# class SerialView(ListView):
+#     model = models.Serial
+#     template_name = 'jutsu_list.html'
 
-    def get_queryset(self):
-        return models.Serial.objects.all()
+#     def get_queryset(self):
+#         return models.Serial.objects.all()
 
-class ParserJutsuView(FormView):
-    template_name = 'jutsu_parser.html'
-    form_class = forms.ParserForm
-    success_url = '/jutsu1/'
+# class ParserJutsuView(FormView):
+#     template_name = 'jutsu_parser.html'
+#     form_class = forms.ParserForm
+#     success_url = '/jutsu1/'
 
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            form.parser_data()
-            return HttpResponseRedirect(self.success_url)
-        else:
-            return super (ParserJutsuView, self).post(request, *args, **kwargs)
-
-
-
+#     def post(self, request, *args, **kwargs):
+#         form = self.form_class(request.POST)
+#         if form.is_valid():
+#             form.parser_data()
+#             return HttpResponseRedirect(self.success_url)
+#         else:
+#             return super (ParserJutsuView, self).post(request, *args, **kwargs)
 

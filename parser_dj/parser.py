@@ -53,39 +53,39 @@ def parser():
 
 ###################################################################################################################################################
 
-HOST1 = 'https://jut.su/'
-URL1 = 'https://jut.su/'
+# HOST1 = 'https://jut.su/'
+# URL1 = 'https://jut.su/'
 
 
-@csrf_exempt
-def get_html(url, params=''):
-    req = requests.get(url, headers=HEADERS, params=params)
-    return req
+# @csrf_exempt
+# def get_html(url, params=''):
+#     req = requests.get(url, headers=HEADERS, params=params)
+#     return req
 
-@csrf_exempt
-def get_content(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    items = soup.find_all('div', class_='title')
-    anime1 = []
+# @csrf_exempt
+# def get_content(html):
+#     soup = BeautifulSoup(html, 'html.parser')
+#     items = soup.find_all('div', class_='title')
+#     anime1 = []
 
-    for item in items:
-        anime1.append(
-            {
-                'title': item.find('div', class_='title').get_text(strip=True),
-                'image': HOST1 + item.find('div', class_='phimage').find('img').get('src')
-            }
-        )
-    # print(anime1)
-    return anime1
+#     for item in items:
+#         anime1.append(
+#             {
+#                 'title': item.find('div', class_='title').get_text(strip=True),
+#                 'image': HOST1 + item.find('div', class_='phimage').find('img').get('src')
+#             }
+#         )
+#     # print(anime1)
+#     return anime1
 
-@csrf_exempt
-def parser():
-    html = get_html(URL1)
-    if html.status_code == 200:
-        anime1 = []
-        for page in range(0, 1):
-            html = get_html(URL1, params={'page': page})
-            anime1.extend(get_content(html.text))
-            return anime1
-    else:
-        raise ValueError('Error in PARSER, damn')
+# @csrf_exempt
+# def parser():
+#     html = get_html(URL1)
+#     if html.status_code == 200:
+#         anime1 = []
+#         for page in range(0, 1):
+#             html = get_html(URL1, params={'page': page})
+#             anime1.extend(get_content(html.text))
+#             return anime1
+#     else:
+#         raise ValueError('Error in PARSER, damn')

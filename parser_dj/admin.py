@@ -3,4 +3,4 @@ from . import models
 
 # Register your models here.
 admin.site.register(models.Film)
-admin.site.register(models.Serial)
+# admin.site.register(models.Serial)

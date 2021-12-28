@@ -10,7 +10,6 @@ from . import parser, models
 class ParserForm(forms.Form):
     MEDIA_CHOICES = (
         ('Anime', 'Anime'),
-        ('Jutsu', 'Jutsu'),
 
     )
     media_type = forms.ChoiceField(choices=MEDIA_CHOICES)
@@ -25,10 +24,10 @@ class ParserForm(forms.Form):
             anime_data = parser.parser()
             for i in anime_data:
                 models.Film.objects.create(**i)
-    def parser_data(self):
-        if self.data['media_type'] == 'Jutsu':
-            jutsu_data = parser.parser()
-            for i in jutsu_data:
-                models.Serial.objects.create(**i)
+    # def parser_data(self):
+    #     if self.data['media_type'] == 'Jutsu':
+    #         jutsu_data = parser.parser()
+    #         for i in jutsu_data:
+    #             models.Serial.objects.create(**i)
 
 
